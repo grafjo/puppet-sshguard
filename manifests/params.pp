@@ -17,6 +17,15 @@ class sshguard::params {
 
   $package_version = 'installed'
 
+  $service_name  = $::osfamily ? {
+    'Debian' => 'sshguard',
+    default  => fail("${::osfamily} is not supported by ${module_name}")
+  }
+
+  $manage_service_ensure = 'running'
+
+  $manage_service_enable = true
+
   $enable_firewall = 1
 
   $logfiles = ["/var/log/auth.log"]

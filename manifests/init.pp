@@ -9,14 +9,15 @@
 # Copyright 2014 Johanns Graf
 #
 class sshguard (
-  $package             = $sshguard::params::package_name,
-  $version             = $sshguard::params::package_version,
-  $enable_firewall     = $sshguard::params::enable_firewall,
-  $logfiles            = $sshguard::params::logfiles,
-  $whitelist           = $sshguard::params::whitelist,
-  $safety_thresh       = $sshguard::params::safety_thresh,
-  $pardon_min_interval = $sshguard::params::pardon_min_interval,
-  $prescribe_interval  = $sshguard::params::prescribe_interval,
+  $version               = $sshguard::params::package_version,
+  $manage_service_ensure = $sshguard::params::manage_service_ensure,
+  $manage_service_enable = $sshguard::params::manage_service_enable,
+  $enable_firewall       = $sshguard::params::enable_firewall,
+  $logfiles              = $sshguard::params::logfiles,
+  $whitelist             = $sshguard::params::whitelist,
+  $safety_thresh         = $sshguard::params::safety_thresh,
+  $pardon_min_interval   = $sshguard::params::pardon_min_interval,
+  $prescribe_interval    = $sshguard::params::prescribe_interval,
 ) inherits sshguard::params {
 
   anchor {'sshguard::start': }->
@@ -32,7 +33,11 @@ class sshguard (
     pardon_min_interval => $pardon_min_interval,
     prescribe_interval  => $prescribe_interval,
   }~>
-  class {'sshguard::service': } ~>
+  class {'sshguard::service':
+    service_name          => $sshguard::params::service_name,
+    manage_service_ensure => $manage_service_ensure,
+    manage_service_enable => $manage_service_enable,
+  } ~>
   anchor {'sshguard::end': }
 
 }
