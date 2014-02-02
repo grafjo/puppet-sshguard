@@ -9,7 +9,7 @@
 ENABLE_FIREWALL=<%= @enable_firewall %>
 
 # list of log files to scan delimited by space
-LOGFILES="<% @logfiles.join(" ") %>"
+LOGFILES="<%= @logfiles.join(" ") %>"
 
 # Whitelist configuration file
 WHITELIST="/etc/sshguard/whitelist"
