@@ -44,3 +44,13 @@ Seconds after which unblocking a blocked address - default is 420.
 
 ##### `prescribe_interval`
 Seconds after which forgetting about a cracker candidate - default is 1200.
+
+## Authors
+* Johannes Graf ([@grafjo](https://github.com/grafjo))
+
+
+## License
+
+puppet-sshguard is released under the MIT License. See the bundled LICENSE file
+for details.
+
