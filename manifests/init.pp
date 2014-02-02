@@ -23,7 +23,7 @@ class sshguard (
   anchor {'sshguard::start': }->
   class {'sshguard::package':
     package  => $package_name,
-    version  => $package_version,
+    version => $version,
   } ~>
   class {'sshguard::configure':
     enable_firewall     => $enable_firewall,
