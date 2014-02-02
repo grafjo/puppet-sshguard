@@ -6,13 +6,13 @@
 # changing the firewall rules; in such case you will need to setup such rules
 # yourself according to the Sshguard documentation.
 # See man page sshguard(8) for documentation of the command line options
-ENABLE_FIREWALL=1
+ENABLE_FIREWALL=<%= @enable_firewall %>
 
 # list of log files to scan delimited by space
-LOGFILES="/var/log/auth.log"
+LOGFILES="<% @logfiles.join(" ") %>"
 
 # Whitelist configuration file
 WHITELIST="/etc/sshguard/whitelist"
 
 # Other options
-ARGS="-a 40 -p 420 -s 1200"
+ARGS="-a <%= @safety_thresh %> -p <%= @pardon_min_interval %> -s <%= @prescribe_interval %>"

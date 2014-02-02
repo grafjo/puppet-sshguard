@@ -8,17 +8,24 @@
 #
 # Copyright 2014 Johannes Graf
 #
-class sshguard::configure () {
+class sshguard::configure (
+  $enable_firewall,
+  $logfiles,
+  $whitelist,
+  $safety_thresh,
+  $pardon_min_interval,
+  $prescribe_interval,
+) {
 
   file { '/etc/sshguard/whitelist':
     ensure  => file,
-    source => "puppet:///modules/${module_name}/whitelist",
+    content => template("${module_name}/whitelist.erb"),
     notify => Service['sshguard'],
   }
 
   file { '/etc/default/sshguard':
     ensure  => file,
-    source => "puppet:///modules/${module_name}/default",
+    content => template("${module_name}/default.erb"),
     notify => Service['sshguard'],
   }
 
