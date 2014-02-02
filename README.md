@@ -1,4 +1,4 @@
-#elasticsearch
+#sshguard
 
 ##Overview
 
