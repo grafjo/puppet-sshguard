@@ -28,9 +28,9 @@ class sshguard::params {
 
   $enable_firewall = 1
 
-  $logfiles = ["/var/log/auth.log"]
+  $logfiles = ['/var/log/auth.log']
 
-  $whitelist = ["127.0.0.0/8"]
+  $whitelist = ['127.0.0.0/8']
 
   $safety_thresh = 40
 
