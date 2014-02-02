@@ -22,7 +22,7 @@ class sshguard (
 
   anchor {'sshguard::start': }->
   class {'sshguard::package':
-    package  => $package_name,
+    package => $sshguard::params::package_name,
     version => $version,
   } ~>
   class {'sshguard::configure':
