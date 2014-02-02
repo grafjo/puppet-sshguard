@@ -17,16 +17,22 @@ class sshguard::configure (
   $prescribe_interval,
 ) {
 
+  File {
+    owner => 'root',
+    group => 'root',
+    mode  => '0644',
+  }
+
   file { '/etc/sshguard/whitelist':
     ensure  => file,
     content => template("${module_name}/whitelist.erb"),
-    notify => Service['sshguard'],
+    notify  => Service['sshguard'],
   }
 
   file { '/etc/default/sshguard':
     ensure  => file,
     content => template("${module_name}/default.erb"),
-    notify => Service['sshguard'],
+    notify  => Service['sshguard'],
   }
 
 }
