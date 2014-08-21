@@ -1,5 +1,5 @@
 name 'grafjo-sshguard'
-version '0.2.0'
+version '0.2.1'
 author 'Johannes Graf'
 license 'MIT License'
 project_page 'https://github.com/grafjo/puppet-sshguard'
