@@ -6,3 +6,4 @@ gem 'rake'
 gem 'puppet', puppetVersion
 gem 'puppet-lint'
 gem 'puppet-syntax'
+gem 'metadata-json-lint'

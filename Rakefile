@@ -1,5 +1,6 @@
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'
+require 'metadata-json-lint/rake_task'
 
 exclude_paths = [
   "pkg/**/*",
@@ -41,8 +42,4 @@ PuppetLint::RakeTask.new :lint do |config|
   config.show_ignored = true
 end
 
-task :metadata do
-  sh "metadata-json-lint --no-strict-license metadata.json"
-end
-
-task :default => [:syntax, :lint, :metadata]
+task :default => [:syntax, :lint, :metadata_lint]
