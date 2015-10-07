@@ -10,10 +10,10 @@
 #
 class sshguard::params {
 
-  case $::osfamily { 
+  case $::osfamily {
     'Debian': {
-      $package_name => 'sshguard'
-      $service_name => 'sshguard'
+      $package_name = 'sshguard'
+      $service_name = 'sshguard'
      }
     default: {
       fail("${::osfamily} is not supported by ${module_name}")
