@@ -10,7 +10,7 @@
 #
 class sshguard::params {
 
-  case $::osfamily ? {
+  case $::osfamily { 
     'Debian': {
       $package_name => 'sshguard'
       $service_name => 'sshguard'
