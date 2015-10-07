@@ -1,0 +1,39 @@
+{
+  "name": "grafjo-sshguard",
+  "version": "0.2.1",
+  "author": "Johannes Graf",
+  "summary": "Puppet module for sshguard",
+  "description": "A Puppet module to manage sshguard",
+  "license": "MIT License",
+  "source": "https://github.com/grafjo/puppet-sshguard.git",
+  "project_page": "https://github.com/grafjo/puppet-sshguard",
+  "issues_url": "https://github.com/grafjo/puppet-sshguard/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.0.0 < 4.0.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 0.0.1"
+    }
+  ]
+}
