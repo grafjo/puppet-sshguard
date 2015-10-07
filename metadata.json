@@ -4,7 +4,7 @@
   "author": "Johannes Graf",
   "summary": "Puppet module for sshguard",
   "description": "A Puppet module to manage sshguard",
-  "license": "MIT License",
+  "license": "MIT",
   "source": "https://github.com/grafjo/puppet-sshguard.git",
   "project_page": "https://github.com/grafjo/puppet-sshguard",
   "issues_url": "https://github.com/grafjo/puppet-sshguard/issues",
