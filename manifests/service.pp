@@ -8,15 +8,11 @@
 #
 # Copyright 2014 Johannes Graf
 #
-class sshguard::service (
-  $service_name,
-  $manage_service_ensure,
-  $manage_service_enable,
-) {
+class sshguard::service {
 
-  service { $service_name:
-    ensure     => $manage_service_ensure,
-    enable     => $manage_service_enable,
+  service { $sshguard::service_name:
+    ensure     => $sshguard::manage_service_ensure,
+    enable     => $sshguard::manage_service_enable,
     hasstatus  => true,
     hasrestart => true,
   }

@@ -10,17 +10,17 @@
 #
 class sshguard::params {
 
-  $package_name = $::osfamily ? {
-    'Debian' => 'sshguard',
-    default  => fail("${::osfamily} is not supported by ${module_name}")
+  case $::osfamily ? {
+    'Debian': {
+      $package_name => 'sshguard'
+      $service_name => 'sshguard'
+     }
+    default: {
+      fail("${::osfamily} is not supported by ${module_name}")
+    }
   }
 
   $package_version = 'installed'
-
-  $service_name  = $::osfamily ? {
-    'Debian' => 'sshguard',
-    default  => fail("${::osfamily} is not supported by ${module_name}")
-  }
 
   $manage_service_ensure = 'running'
 

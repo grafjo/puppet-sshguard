@@ -7,13 +7,16 @@ A Puppet module to install and manage [sshguard](http://www.sshguard.net/)
 
 To use this module with the default configuration, just start with this:
 ```puppet
-class { 'sshguard':}
+include ::sshguard
 ```
 
 All changes can be done via `class {'sshguard':}`. See following parameters
 
-#####`version`
+#####`package_version`
 Puppet package ensure - see [Type Reference](http://docs.puppetlabs.com/references/latest/type.html#package-attribute-ensure)
+
+#####`package_name`
+Name of sshguard package
 
 ##### `manage_service_ensure`
 Puppet service ensure - see [Type Reference](http://docs.puppetlabs.com/references/latest/type.html#service-attribute-ensure)

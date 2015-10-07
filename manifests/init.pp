@@ -9,35 +9,21 @@
 # Copyright 2014 Johanns Graf
 #
 class sshguard (
-  $version               = $sshguard::params::package_version,
-  $manage_service_ensure = $sshguard::params::manage_service_ensure,
-  $manage_service_enable = $sshguard::params::manage_service_enable,
-  $enable_firewall       = $sshguard::params::enable_firewall,
-  $logfiles              = $sshguard::params::logfiles,
-  $whitelist             = $sshguard::params::whitelist,
-  $safety_thresh         = $sshguard::params::safety_thresh,
-  $pardon_min_interval   = $sshguard::params::pardon_min_interval,
-  $prescribe_interval    = $sshguard::params::prescribe_interval,
+  String $package_name           = $sshguard::params::package_name,
+  String $package_version        = $sshguard::params::package_version,
+  String $manage_service_ensure  = $sshguard::params::manage_service_ensure,
+  Boolean $manage_service_enable = $sshguard::params::manage_service_enable,
+  Integer $enable_firewall       = $sshguard::params::enable_firewall,
+  Array[String] $logfiles        = $sshguard::params::logfiles,
+  Array[String] $whitelis        = $sshguard::params::whitelist,
+  Integer $safety_thresh         = $sshguard::params::safety_thresh,
+  Integer $pardon_min_interval   = $sshguard::params::pardon_min_interval,
+  Integer $prescribe_interval    = $sshguard::params::prescribe_interval,
 ) inherits sshguard::params {
 
-  anchor {'sshguard::start': }->
-  class {'sshguard::package':
-    package => $sshguard::params::package_name,
-    version => $version,
-  } ~>
-  class {'sshguard::configure':
-    enable_firewall     => $enable_firewall,
-    logfiles            => $logfiles,
-    whitelist           => $whitelist,
-    safety_thresh       => $safety_thresh,
-    pardon_min_interval => $pardon_min_interval,
-    prescribe_interval  => $prescribe_interval,
-  }~>
-  class {'sshguard::service':
-    service_name          => $sshguard::params::service_name,
-    manage_service_ensure => $manage_service_ensure,
-    manage_service_enable => $manage_service_enable,
-  } ~>
-  anchor {'sshguard::end': }
+  class {'sshguard::install': } ->
+  class {'sshguard::config': } ~>
+  class {'sshguard::service': } ->
+  Class['sshguard']
 
 }

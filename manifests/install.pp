@@ -8,10 +8,10 @@
 #
 # Copyright 2014 Johanns Graf
 #
-class sshguard::package($package, $version) {
+class sshguard::install {
 
-  package { $package:
-    ensure  => $version,
+  package { $sshguard::package_name:
+    ensure  => $sshguard::package_version,
   }
 
 }
