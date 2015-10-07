@@ -14,7 +14,7 @@ class sshguard::params {
     'Debian': {
       $package_name = 'sshguard'
       $service_name = 'sshguard'
-     }
+    }
     default: {
       fail("${::osfamily} is not supported by ${module_name}")
     }
