@@ -19,7 +19,7 @@ PuppetLint::RakeTask.new :lint do |config|
   config.ignore_paths = exclude_paths
 
   # List of checks to disable
-  config.disable_checks = ['documentation', '80chars', 'autoloader_layout']
+  config.disable_checks = ['documentation', '80chars', 'autoloader_layout', 'class_inherits_from_params_class']
 
   # Should puppet-lint prefix it's output with the file being checked,
   # defaults to true
