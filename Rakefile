@@ -42,4 +42,4 @@ PuppetLint::RakeTask.new :lint do |config|
   config.show_ignored = true
 end
 
-task :default => [:syntax, :lint, :metadata_lint]
+task :default => [:lint, :metadata_lint]
