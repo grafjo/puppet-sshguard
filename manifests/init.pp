@@ -15,7 +15,7 @@ class sshguard (
   Boolean $manage_service_enable = $sshguard::params::manage_service_enable,
   Integer $enable_firewall       = $sshguard::params::enable_firewall,
   Array[String] $logfiles        = $sshguard::params::logfiles,
-  Array[String] $whitelis        = $sshguard::params::whitelist,
+  Array[String] $whitelist       = $sshguard::params::whitelist,
   Integer $safety_thresh         = $sshguard::params::safety_thresh,
   Integer $pardon_min_interval   = $sshguard::params::pardon_min_interval,
   Integer $prescribe_interval    = $sshguard::params::prescribe_interval,
