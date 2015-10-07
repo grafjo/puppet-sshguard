@@ -6,6 +6,6 @@
 # /usr/share/doc/sshguard/examples/whitelistfile.example
 
 # Address blocks in CIDR notation
-<% @sshguard::whitelist.each do |entry| %>
+<% scope['sshguard::whitelist'].each do |entry| %>
 <%= entry -%>
 <% end %>
