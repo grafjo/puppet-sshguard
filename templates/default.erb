@@ -8,8 +8,12 @@
 # See man page sshguard(8) for documentation of the command line options
 ENABLE_FIREWALL=<%= scope['sshguard::enable_firewall'] %>
 
-# list of log files to scan delimited by space
-LOGFILES="<%= scope['sshguard::logfiles'].join(" ") %>"
+# list of log files to scan delimited by space and -l parameter
+# For more information please see
+# http://www.sshguard.net/docs/setup/getlogs/log-sucker/
+# Example
+#LOGFILES="-l /var/log/foo.log -l /var/log/bar.log"
+LOGFILES="<%= scope['sshguard::logfiles'].map{|logFile| "-l #{logFile}"}.join(" ") %>"
 
 # Whitelist configuration file
 WHITELIST="/etc/sshguard/whitelist"
